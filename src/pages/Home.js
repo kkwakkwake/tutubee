@@ -19,8 +19,6 @@ const HomeContainer = styled.div`
 const ItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
-
-
 `;
 
 const Home = () => {
@@ -35,7 +33,6 @@ const Home = () => {
     <>
       <Layout>
         <HomeContainer>
-
           {data && data.map((item) =>
             <ItemWrapper key={item.id}>
               <img src='img/filming.png' alt='thumbnail' />
@@ -43,7 +40,6 @@ const Home = () => {
               <span>{item.address.street}</span>
               <span>{item.id}</span>
             </ItemWrapper>)}
-
         </HomeContainer>
       </Layout>
     </>
