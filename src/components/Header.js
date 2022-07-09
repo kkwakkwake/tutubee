@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderIcons = styled.img`
   width: 40px;
@@ -60,24 +60,23 @@ const Logo = styled.img`
 `;
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <HeaderContainer>
       <HeaderLogo>
         <Logo src='img/beelogo.png' alt='logo' />
-        <span>TUTUBEE</span>
+        <span onClick={() => navigate('/')}>TUTUBEE</span>
         <HeaderNav>
-          <span>HOME</span>
-          <span>SHORTS</span>
-          <span>MUSIC</span>
+          <span onClick={() => navigate('/')}>HOME</span>
+          <span onClick={() => navigate('/shorts')}>SHORTS</span>
+          <span onClick={() => navigate('/music')}>MUSIC</span>
         </HeaderNav>
       </HeaderLogo>
       <SearchInput type='search' placeholder='검색어를 입력하세요' />
       <HeaderUser>
         <HeaderIcons src='img/filming.png' />
         <HeaderIcons src='img/bell.png' />
-        <Link to='/login'>
-          <span>LOGIN</span>
-        </Link>
+        <span onClick={() => navigate('/login')}>LOGIN</span>
       </HeaderUser>
     </HeaderContainer>
   );
